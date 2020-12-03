@@ -28,7 +28,7 @@ def part_one(down, right, pos=(0, 0)):
         if lines[pos[0]][pos[1]] == "#":
             count += 1
         pos = (
-            pos[0] + down, 
+            pos[0] + down,
             (pos[1] + right) % len(lines[pos[0]])
         )
 
