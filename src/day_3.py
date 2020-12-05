@@ -19,10 +19,8 @@ def parse_input():
 
 def part_one(down, right, pos=(0, 0)):
     """Execute part 1."""
-    # Top left position
     lines = parse_input()
 
-    # Index
     count = 0
     while pos[0] < len(lines):
         if lines[pos[0]][pos[1]] == "#":
