@@ -17,7 +17,7 @@ def parse_input() -> List[str]:
     List[str]
         list containing the lines of the input
     """
-    with open("./data/day_5.txt", 'r') as f:
+    with open("./data/day_5.txt", "r") as f:
         lines = f.read().split("\n")
     return lines
 
@@ -98,7 +98,7 @@ def bits_to_int(bits) -> int:
     x = 0
     bits = bits[::-1]
     for i in range(len(bits)):
-        x += 2**i * int(bits[i])
+        x += 2 ** i * int(bits[i])
     return x
 
 

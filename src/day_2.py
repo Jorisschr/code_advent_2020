@@ -12,7 +12,7 @@ Policy indicates positions
 
 def parse_input():
     """Parse the input of this problem."""
-    with open("./data/day_2.txt", 'r') as f:
+    with open("./data/day_2.txt", "r") as f:
         lines = f.read().split("\n")
     # data is a tuple min max letter pw
     data = []

@@ -9,15 +9,13 @@ Check whether the given passports are valid.
 
 import re
 
-required = [
-    "byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"
-]
+required = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
 
 
 def part_one():
     """Solve part 1."""
-    with open("./data/day_4.txt", 'r') as f:
-            lines = f.read().split("\n\n")
+    with open("./data/day_4.txt", "r") as f:
+        lines = f.read().split("\n\n")
 
     count = 0
     for pp in lines:
@@ -37,8 +35,8 @@ def part_one():
 
 def part_two():
     """Solve part 2."""
-    with open("./data/day_4.txt", 'r') as f:
-            lines = f.read().split("\n\n")
+    with open("./data/day_4.txt", "r") as f:
+        lines = f.read().split("\n\n")
     count = 0
     for pp in lines:
         passport = {}

@@ -11,7 +11,7 @@ from functools import reduce
 
 def parse_input():
     """Parse the input of this problem."""
-    with open("./data/day_3.txt", 'r') as f:
+    with open("./data/day_3.txt", "r") as f:
         lines = f.read().split("\n")
 
     return lines
@@ -25,10 +25,7 @@ def part_one(down, right, pos=(0, 0)):
     while pos[0] < len(lines):
         if lines[pos[0]][pos[1]] == "#":
             count += 1
-        pos = (
-            pos[0] + down,
-            (pos[1] + right) % len(lines[pos[0]])
-        )
+        pos = (pos[0] + down, (pos[1] + right) % len(lines[pos[0]]))
 
     print(count)
     return count

@@ -9,9 +9,10 @@ Count the number of common letters among every line of a group
 
 from functools import reduce
 
+
 def parse_input():
     """Parse the input of this problem."""
-    with open("./data/day_6.txt", 'r') as f:
+    with open("./data/day_6.txt", "r") as f:
         groups = f.read().split("\n\n")
         groups = [g.replace("\n", "") for g in groups]
 
@@ -27,7 +28,7 @@ def part_one():
 
 def part_two():
     """Execute part 2."""
-    with open("./data/day_6.txt", 'r') as f:
+    with open("./data/day_6.txt", "r") as f:
         groups = f.read().split("\n\n")
     result = 0
     for group in groups:
@@ -36,7 +37,6 @@ def part_two():
         final_set = reduce(lambda x, y: x.intersection(y), sets)
         result += len(final_set)
     print(result)
-
 
 
 if __name__ == "__main__":
