@@ -16,12 +16,17 @@ def parse_input():
     rules = {}
     for line in lines:
         bag, content = line.split(" bags contain ")
-        contents = content.replace(".", "").replace(" bags", "").replace(" bag", "").split(", ")
+        contents = (
+            content.replace(".", "")
+            .replace(" bags", "")
+            .replace(" bag", "")
+            .split(", ")
+        )
         tups = []
         for c in contents:
             try:
-                n = int(c[:c.index(" ")])
-                color = c[c.index(" ") + 1:]
+                n = int(c[: c.index(" ")])
+                color = c[c.index(" ") + 1 :]
                 tups.append((n, color))
 
             except Exception:
@@ -84,7 +89,8 @@ def amount_of_bags(rules: dict, bag: str) -> int:
     return sum(
         [
             content[i][0] * (amount_of_bags(rules, content[i][1]) + 1)
-            for i in range(len(content)) if content[i][0] > 0
+            for i in range(len(content))
+            if content[i][0] > 0
         ]
     )
 
