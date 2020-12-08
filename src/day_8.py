@@ -55,7 +55,7 @@ def next_instruction(
     if index in range(len(lines)) and not index in visited:
         visited.append(index)
         return globals()[lines[index][0]](lines, index, acc, visited)
-    if index in visited and printing:
+    if index in visited and PRINT:
         print("Failed", f"Index: {index}", f"Accumulator: {acc}", sep="\n")
         return None
 
@@ -63,12 +63,14 @@ def next_instruction(
 def part_one():
     """Execute part 1."""
     lines = parse_input()
+    PRINT = True
     next_instruction(lines, 0, 0, [])
 
 
 def part_two():
     """Execute part 2."""
     lines = parse_input()
+    PRINT = False
     for x in range(len(lines)):
         if lines[x][0] == "nop" or lines[x][0] == "jmp":
             temp_lines = deepcopy(lines)
@@ -79,9 +81,5 @@ def part_two():
 
 
 if __name__ == "__main__":
-    printing = True
     part_one()
-    printing = False
     part_two()
-    # parse_input()
-    # print(globals()["nop"](0, 2, 2))
