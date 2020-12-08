@@ -98,7 +98,8 @@ def next_instruction(
 ) -> Tuple[List[str], int, int, List[int]]:
     """Execute the next instruction if the program shouldn't be terminated.
 
-    The program should be terminated if a command is about to be executed for the second time or the last command was executed.
+    The program should be terminated if a command is about to be executed
+    for the second time or the last command was executed.
 
     Parameters
     ----------
