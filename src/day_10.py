@@ -8,11 +8,11 @@ Part 2:
 Find the number of valid configurations by leaving out numbers.
 A configuration is valid if there is no gap larger than 3 between two consecutive numbers.
 """
-from typing import List
-from itertools import combinations
 import operator
 from collections import Counter
 from functools import reduce
+from itertools import combinations
+from typing import List
 
 
 def parse_input() -> List[int]:
@@ -104,21 +104,34 @@ def count_configs(sequence: List[int]) -> int:
         sub_seq = sequence[1:-1]
         all_combinations = [
             [sequence[0]] + list(elem) + [sequence[-1]]
-            for i in range(len(sub_seq) + 1) for elem in list(combinations(sub_seq, i))
+            for i in range(len(sub_seq) + 1)
+            for elem in list(combinations(sub_seq, i))
         ]
         return sum(valid(c) for c in all_combinations)
-    
+
     elif valid(sequence):
         return 1
-    
+
     print("This should not happen...")
     return 0
 
 
 def valid(numbers: List[int]) -> bool:
+    """Check if a given list of numbers is valid
+
+    Parameters
+    ----------
+    numbers : List[int]
+        list of numbers to check
+
+    Returns
+    -------
+    bool
+        whether the list is valid
+    """
     if len(numbers) == 1:
         return True
-    return max(list(map(operator.sub, numbers[1:], numbers[:-1]))) <= 3 
+    return max(list(map(operator.sub, numbers[1:], numbers[:-1]))) <= 3
 
 
 if __name__ == "__main__":

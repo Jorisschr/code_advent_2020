@@ -1,12 +1,14 @@
-from typing import List
 from copy import deepcopy
+from typing import List
+
 import numpy as np
+
 
 def parse_input() -> List[List[int]]:
     """Parse input"""
     with open("./data/day_11.txt") as f:
         occ = [[0 if c == "L" else np.nan for c in line.strip()] for line in f]
-    
+
     return occ
 
 
@@ -22,7 +24,7 @@ def part_one(occ):
         if occ_new == occ:
             break
         occ = occ_new
-    
+
     return int(np.nansum(occ))
 
 
@@ -38,12 +40,15 @@ def part_two(occ):
         if occ_new == occ:
             break
         occ = occ_new
-    
-    return int(np.nansum(occ))    
+
+    return int(np.nansum(occ))
 
 
 def adjacent(occ, x, y):
-    return [occ[i][max(0, y-1):min(y+2, len(occ[i]))] for i in range(max(0, x-1), min(x+2, len(occ)))]
+    return [
+        occ[i][max(0, y - 1) : min(y + 2, len(occ[i]))]
+        for i in range(max(0, x - 1), min(x + 2, len(occ)))
+    ]
 
 
 def occupy(occ, x, y):
@@ -55,11 +60,7 @@ def release(occ, x, y):
 
 
 def adjacent_part_two(occ, x, y):
-    directions = [
-        (-1, -1), (-1, 0), (-1, 1),
-        (0, -1), (0, 1),
-        (1, -1), (1, 0), (1, 1)
-    ]
+    directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
     return [find_seat(occ, x, y, d) for d in directions]
 
@@ -75,11 +76,12 @@ def find_seat(occ, x, y, d):
             return find_seat(occ, i, j, d)
     return 0
 
+
 def occupy_part_two(occ, x, y):
     return occ[x][y] == 0 and sum(adjacent_part_two(occ, x, y)) == 0
 
 
-def release_part_two(occ, x , y):
+def release_part_two(occ, x, y):
     return occ[x][y] == 1 and sum(adjacent_part_two(occ, x, y)) >= 5
 
 

@@ -9,6 +9,7 @@ Sum of the min and max number in the preceding slice of the invalid number
 """
 from typing import List
 
+
 def parse_input() -> List[int]:
     """Parse the input of this problem."""
     with open("./data/day_9.txt", "r") as f:
@@ -50,9 +51,9 @@ def part_two(invalid_number) -> int:
     print(numbers.index(invalid_number))
     for i in range(numbers.index(invalid_number)):
         for j in range(i, numbers.index(invalid_number)):
-            if (sum(numbers[i:j+1])) == invalid_number:
+            if (sum(numbers[i : j + 1])) == invalid_number:
                 print(i, j)
-                s = numbers[i:j+1]
+                s = numbers[i : j + 1]
                 print(max(s) + min(s))
                 return i + j
 
