@@ -2,11 +2,13 @@
 
 Part 1:
 Sort the input ascending add a 0 and max + 3.
-Count the number of differences of 1 and 3 between each pair of succesive numbers and multiply the results.
+Count the number of differences of 1 and 3 between each pair of succesive
+numbers and multiply the results.
 
 Part 2:
 Find the number of valid configurations by leaving out numbers.
-A configuration is valid if there is no gap larger than 3 between two consecutive numbers.
+A configuration is valid if there is no gap larger than 3 between two
+consecutive numbers.
 """
 import operator
 from collections import Counter
@@ -73,7 +75,7 @@ def find_all_sequences(numbers: List[int]) -> List[List[int]]:
     Returns
     -------
     List[List[int]]
-        numbers divided into sequences that have a gap of 3 or larger with their neighbours
+        numbers divided into sequences with a gap of 3 or larger with their neighbours
     """
     sequences = []
     cur_seq = [numbers[0]]
