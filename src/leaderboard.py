@@ -1,6 +1,6 @@
+"""Generate an overview of a private leaderboard."""
 import json
 from datetime import datetime
-from pprint import pprint
 
 import pandas as pd
 
