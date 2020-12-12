@@ -1,10 +1,10 @@
-"""Solution for day 7.
+"""Solution for day 8.
 
 Part 1:
 Execute the given code.
 
 Part 2:
-Count the amount of bags required to be inside a shiny gold bag.
+Change 1 nop to jmp or vice versa to make the program work and return the accumulator.
 """
 from copy import deepcopy
 from typing import List, Tuple
