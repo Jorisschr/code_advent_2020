@@ -5,7 +5,6 @@ Find the first number in the list that is not a sum of 2 numbers in a preceding 
 
 Part 2:
 Sum of the min and max number in the preceding slice of the invalid number
-
 """
 from typing import List
 
